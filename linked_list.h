@@ -12,9 +12,16 @@ struct node
 class linked_list
 {
 	public:
-
-	private;
-
+		linked_list();
+		~linked_list();
+		void insert_orderd(int d);
+		int display(void) const;
+		int clear_list(void);
+	private:
+		node * insert_orderd(node * head, int d);
+		int display(node * head) const;	
+		int clear_list(node *& head);
+		node * head;	
 };
 
 #endif //H_LINKED_LIST	
