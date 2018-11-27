@@ -16,11 +16,15 @@ class linked_list
 		~linked_list();
 		void insert_orderd(int d);
 		int display(void) const;
-		int clear_list(void);
+		int remove_list(void);
+		bool search_data(int d);
+		bool remove_item(int d);	
 	private:
 		node * insert_orderd(node * head, int d);
 		int display(node * head) const;	
-		int clear_list(node *& head);
+		int remove_list(node *& head);
+		bool search_data(node * head, int d);
+		bool remove_item(node *& head, int d);
 		node * head;	
 };
 

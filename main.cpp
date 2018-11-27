@@ -9,6 +9,15 @@ int main()
 	a.insert_orderd(10);
 	a.insert_orderd(7);
 	a.display();
+	if(a.remove_item(70))
+	{
+		cout << endl << "match" << endl;
+	}
+	else
+	{
+		cout << endl << "no match" << endl;
+	}
 
+	a.display();
 	return 0;
 }

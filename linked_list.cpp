@@ -7,8 +7,7 @@ linked_list::linked_list()
 
 linked_list::~linked_list()
 {
-	int num = clear_list();
-	cout << endl << "removed: " << num << endl;
+	remove_list();
 }
 
 void linked_list::insert_orderd(int d)
@@ -67,21 +66,69 @@ int linked_list::display(node * head) const
 	}
 }
 
-int linked_list::clear_list(void)
+int linked_list::remove_list(void)
 {
-	return clear_list(head);
+	return remove_list(head);
 }
 
-int linked_list::clear_list(node *& head)
+int linked_list::remove_list(node *& head)
 {
 	if(!head)
 	{
 		return 0;	
 	}
 
-	int num = clear_list(head->next);
+	int num = remove_list(head->next);
 	
 	delete head;
 	head = NULL;
 	return num + 1;	
+}
+
+bool linked_list::search_data(int d)
+{
+	return search_data(head, d);
+}
+
+bool linked_list::search_data(node * head, int d)
+{
+	if(!head)
+	{
+		return false;
+	}
+	else if(d == head->data)
+	{
+		return true;
+	}
+	else
+	{
+		search_data(head->next, d);
+	}
+}
+
+bool linked_list::remove_item(int d)
+{
+	return remove_item(head, d);
+}
+
+bool linked_list::remove_item(node *& head, int d)
+{
+	if(!head)
+	{
+		return false;
+	}
+	
+	if(head->data == d)
+	{
+		node * temp = head;
+		head = head->next;
+		delete temp;
+		temp = NULL;
+
+		return true;
+	}	
+
+	bool item = remove_item(head->next, d);
+	
+	return item;
 }
