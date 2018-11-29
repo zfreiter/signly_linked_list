@@ -8,16 +8,15 @@ int main()
 
 	a.insert_orderd(10);
 	a.insert_orderd(7);
-	a.display();
-	if(a.remove_item(70))
-	{
-		cout << endl << "match" << endl;
-	}
-	else
-	{
-		cout << endl << "no match" << endl;
-	}
+	
+	a.insert_orderd(70);
 
+	a.insert_orderd(54);
 	a.display();
+
+	int num = a.insert_before_last(700);
+	cout << endl << "NUM: " << num  << endl;
+	a.display();
+
 	return 0;
 }

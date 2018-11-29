@@ -132,3 +132,59 @@ bool linked_list::remove_item(node *& head, int d)
 	
 	return item;
 }
+
+int linked_list::display_every_other(void)
+{
+	if(!head)
+	{
+		return 0;
+	}
+	else
+	{
+		return display_every_other(head);
+	}
+}
+		
+int linked_list::display_every_other(node * head)
+{
+	if(!head)
+	{
+		return 0;
+	}
+	
+	cout << endl << "Data: " << head->data << endl;
+		
+	if(!head->next)
+	{
+		return 1;
+	}
+	
+	int temp = display_every_other(head->next->next) + 1;	
+
+	return temp;	
+}
+
+int linked_list::insert_before_last(int d)
+{
+	return insert_before_last(head, d);
+}
+
+int linked_list::insert_before_last(node *& head, int d)
+{
+	if(!head)
+	{
+		return 0;
+	}
+	else if(!head->next)
+	{
+		node * temp = head;
+		head = new node;
+		head->data = d;
+		head->next = temp;
+		return temp->data;
+	}
+	
+	int value = insert_before_last(head->next, d); 
+	
+	return value;
+}
