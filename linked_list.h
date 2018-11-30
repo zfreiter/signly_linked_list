@@ -21,6 +21,7 @@ class linked_list
 		bool remove_item(int d);
 		int display_every_other(void);		
 		int insert_before_last(int d);
+		int remove_special(void);
 	private:
 		node * insert_orderd(node * head, int d);
 		int display(node * head) const;	
@@ -29,6 +30,7 @@ class linked_list
 		bool remove_item(node *& head, int d);
 		int display_every_other(node * head);	
 		int insert_before_last(node *& head, int d);
+		int remove_special(node *& head);
 		node * head;	
 };
 

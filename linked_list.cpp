@@ -188,3 +188,30 @@ int linked_list::insert_before_last(node *& head, int d)
 	
 	return value;
 }
+
+int linked_list::remove_special(void)
+{
+	return remove_special(head);
+}
+
+//Function will remove all nodes except for the first and end nodes.
+int linked_list::remove_special(node *& head)
+{
+	int total = 0;
+	if(!head)
+	{
+		return 0;
+	}
+	if(head->next && head->next->next)
+	{	
+		int preTotal = head->next->data;
+		node * temp = head->next;
+		head->next = head->next->next;
+		delete temp;
+		temp = NULL;
+
+		total = remove_special(head) + preTotal;
+	}
+	
+	return total;
+}

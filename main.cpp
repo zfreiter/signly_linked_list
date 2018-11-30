@@ -17,6 +17,10 @@ int main()
 	int num = a.insert_before_last(700);
 	cout << endl << "NUM: " << num  << endl;
 	a.display();
+	int num2 = a. remove_special();
+	cout << endl;
+	cout << endl << "total removed: " << num2  << endl;
+	a.display();
 
 	return 0;
 }
